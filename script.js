@@ -31,7 +31,7 @@ function createListItemHtml() {
 	</li>';
 	}
 	function setDeleteButtonEvent(id):
-	let deletButton = document.getElementById("button"+id)
+	letdeletButton = document.getElementById("button"+id)
 	deletButton.addEventListener("click", ()) =>
 }
 function  getRandomInt(min, max) {
