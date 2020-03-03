@@ -23,28 +23,28 @@ function addItemToShoppingList() {
 		let id = getRandomInt(0, 10000000);
 
 		//Creates list item html and appends to page.
-		let itemHtml =createListItemHtml(itemName.value, itemAmount.value);
+		let itemHtml =createListItemHtml(itemName.value, itemAmount.value, id);
 		let itemListRef = document.getElementById("shopping-list");
 		itemListRef.insertAdjacentHTML("afterend", itemHtml);
 
 		setDeleteButtonEvent(id);
 }
 function setDeleteButtonEvent(id){
-	let deleteButton = document.getElementById("item"+id);
+	let deleteButton = document.getElementById("button"+id);
 	deleteButton.addEventListener("click", () => {
 		removeListItem(id);
 	});
 }
 	function createListItemHtml (itemName, itemAmount, id) {
 		return `<li id="item${id}">
-			${itemName} - ${itemName}
-			<button "id=buttons{id}" type ="button">Delete</button>
+			${itemName} - ${itemAmount}
+			<button id= "button${id}" "type ="button">Delete</button>
 			</li>`;
 	}
 
 	function removeListItem(id) {
 		let listitem= document.getElementById("item" + id);
-		listitem.parentNode.removeChild(listItem);
+		listitem.parentNode.removeChild(listitem);
 	}
 
 function  getRandomInt(min, max) {
