@@ -24,27 +24,26 @@ function addItemToShoppingList() {
 
 		//Creates list item html and appends to page.
 		let itemHtml =createListItemHtml(itemName.value, itemAmount.value);
-		console.log("Item HTML:",);
-		let itemListRef = document.getElementById("shopping list");
-		itemListRef.insertAdjacentElement("afterend", "itemHTML");
+		let itemListRef = document.getElementById("shopping-list");
+		itemListRef.insertAdjacentHTML("afterend", itemHtml);
 
 		setDeleteButtonEvent(id);
 }
 function setDeleteButtonEvent(id){
-	let deleteButton = document.getElementById("button"+id);
+	let deleteButton = document.getElementById("item"+id);
 	deleteButton.addEventListener("click", () => {
 		removeListItem(id);
 	});
 }
-	function creatListItemHtml (itemName, itemAmount, id) {
+	function createListItemHtml (itemName, itemAmount, id) {
 		return `<li id="item${id}">
 			${itemName} - ${itemName}
 			<button "id=buttons{id}" type ="button">Delete</button>
-			< /li>`;
+			</li>`;
 	}
 
 	function removeListItem(id) {
-		let listItem= document.getElementById("item" + id);
+		let listitem= document.getElementById("item" + id);
 		listitem.parentNode.removeChild(listItem);
 	}
 
