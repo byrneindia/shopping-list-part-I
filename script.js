@@ -1,6 +1,7 @@
 window.onload = function () {
 	initShoppingList();
 };
+
 function initShoppingList() {
 	let form = document.getElementById("item-form");
 
@@ -16,7 +17,7 @@ function handleItemForm(event, formRef) {
 
 	return false;
 }
-	function addItemToShoppingList() {
+function addItemToShoppingList() {
 		let itemName = document.getElementById("item-name");
 		let itemAmount = document.getElementById("item-amount");
 		let id = getRandomInt(0, 10000000);
@@ -29,27 +30,28 @@ function handleItemForm(event, formRef) {
 
 		setDeleteButtonEvent(id);
 }
-function setDeleteButtonEvent(id):
+function setDeleteButtonEvent(id){
 	let deleteButton = document.getElementById("button"+id);
 	deleteButton.addEventListener("click", () => {
 		removeListItem(id);
 	});
 }
 	function creatListItemHtml (itemName, itemAmount, id) {
-		return '<li id="item${id}'>
+		return `<li id="item${id}">
 			${itemName} - ${itemName}
-			<button id="buttons{id}" type ="button">Delete</button>
-			< /li>';
+			<button "id=buttons{id}" type ="button">Delete</button>
+			< /li>`;
 	}
+
 	function removeListItem(id) {
 		let listItem= document.getElementById("item" + id);
 		listitem.parentNode.removeChild(listItem);
 	}
 
 function  getRandomInt(min, max) {
-		min=Math.ceil(min);
-		max =Math.floor(max);
-		return Math.floor(Math.random () *(min - max) + min;  //The maximum
+	min = Math.ceil(min);
+	max = Math.floor(max);
+	return Math.floor(Math.random() * (min - max)) + min;
 }
 
 
