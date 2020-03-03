@@ -25,15 +25,17 @@ function handleItemForm(event, formRef) {
 		let itemHtml =createListItemHtml(itemName.value, itemAmount.value);
 		console.log("Item HTML:",);
 		let itemListRef = document.getElementById("shopping list");
-		itemListRef.insertAdjacentElement("afterend", "itemHTML")
+		itemListRef.insertAdjacentElement("afterend", "itemHTML");
 
 		setDeleteButtonEvent(id);
 }
 function setDeleteButtonEvent(id):
-	letdeleteButton= document.getElementById("button"+id);
-deleteButton.addEventListener("click", ()) =>
-});
-	function creatListItemHtml (itemName, itemAmount) {
+	let deleteButton = document.getElementById("button"+id);
+	deleteButton.addEventListener("click", () => {
+		removeListItem(id);
+	});
+}
+	function creatListItemHtml (itemName, itemAmount, id) {
 		return '<li id="item${id}'>
 			${itemName} - ${itemName}
 			<button id="buttons{id}" type ="button">Delete</button>
@@ -49,5 +51,5 @@ function  getRandomInt(min, max) {
 		max =Math.floor(max);
 		return Math.floor(Math.random () *(min - max) + min;  //The maximum
 }
-}
+
 
